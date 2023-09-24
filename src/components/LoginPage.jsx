@@ -1,4 +1,4 @@
-import { LockClosedIcon } from '@heroicons/react/solid';
+import { LockClosedIcon } from '@heroicons/react/24/solid';
 
 export default function LoginPage() {
   return (
