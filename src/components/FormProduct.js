@@ -11,7 +11,8 @@ export default function FormProduct() {
       price: parseInt(formData.get('price')),
       description: formData.get('description'),
       categoryId: parseInt(formData.get('category')),
-      images: [formData.get('images').name],
+      //images: ['https://' + formData.get('images').name],
+      images: ['https://incajas.com/wp-content/uploads/2021/03/caja-de-carton-microcorrugado-incajas-cubo-mediano-con-tapa-001.png'],
     };
 
     addProduct(data).then((response) => {
