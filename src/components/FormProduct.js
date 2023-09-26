@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { addProduct } from '@services/api/products';
-export default function FormProduct() {
+export default function FormProduct({ setOpen, setAlert }) {
   const formRef = useRef(null);
 
   const handleSubmit = (event) => {
@@ -15,9 +15,14 @@ export default function FormProduct() {
       images: ['https://incajas.com/wp-content/uploads/2021/03/caja-de-carton-microcorrugado-incajas-cubo-mediano-con-tapa-001.png'],
     };
 
-    addProduct(data).then((response) => {
-      console.log(response);
-    });
+    addProduct(data)
+      .then(() => {
+        setAlert({ active: true, message: 'Product added successfully', type: 'success', autoClose: false });
+        setOpen(false);
+      })
+      .catch((error) => {
+        setAlert({ active: true, message: message.error, type: 'error', autoClose: false });
+      });
   };
 
   return (
